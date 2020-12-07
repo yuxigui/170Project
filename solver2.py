@@ -64,16 +64,16 @@ def solve_1(G, s):
     opt_k = -1
     opt_D = {}
 
-    for a in range(0, 5):
-        for b in range(0, 5):
-            for c in range(0, 5):
-                for d in range(0, 5):
-                    for e in range(0, 5):
-                        for f in range(0, 5):
-                            for g in range(0, 5):
-                                for h in range(0, 5):
-                                    for i in range(0, 5):
-                                        for j in range(0, 5):
+    for a in range(0, 6):
+        for b in range(0, 6):
+            for c in range(0,6):
+                for d in range(0, 6):
+                    for e in range(0, 6):
+                        for f in range(0, 6):
+                            for g in range(0, 6):
+                                for h in range(0, 6):
+                                    for i in range(0, 6):
+                                        for j in range(0, 6):
                                             dict_mapping = {0: a, 1: b, 2: c, 3: d, 4: e, 5: f, 6: g, 7: h, 8: i, 9: j}
                                             num_room = len(set({a, b, c, d, e, f, g, h, i, j}))
                                             # stress_barrier = s/num_room
@@ -149,35 +149,7 @@ def solve_3(G, s):
 
 # Usage: python3 solver.py test.in
 
-if __name__ != '__main__':
-    #print(time.perf_counter())
-    assert len(sys.argv) == 2
-    path = sys.argv[1]
-    G, s = read_input_file(path)
-    D_1, k_1 = solve_1(G, s)
-    D_2, k_2 = solve_2(G, s)
-    assert is_valid_solution(D_1, G, s, k_1)
-    assert is_valid_solution(D_2, G, s, k_2)
-    happy_1 = calculate_happiness(D_1, G)
-    happy_2 = calculate_happiness(D_2, G)
 
-    #print(time.perf_counter())
-    #if happy_1 >= happy_2:
-        #print("Total Happiness: {}".format(happy_1))
-        #write_output_file(D_1, 'out/10.out')
-    #else:
-        #print("Total Happiness: {}".format(happy_2))
-        #write_output_file(D_2, 'out/10.out')
-
-if __name__ != '__main__':
-    #print(time.perf_counter())
-    assert len(sys.argv) == 2
-    path = sys.argv[1]
-    G, s = read_input_file(path)
-    D_1, k_1 = solve_3(G, s)
-    print(calculate_happiness(D_1, G))
-    #D_2, k_2 = solve_2(G, s)
-    assert is_valid_solution(D_1, G, s, k_1)
 
 # For testing a folder of inputs to create a folder of outputs, you can use glob (need to import it)
 if __name__ == '__main__':
@@ -185,7 +157,7 @@ if __name__ == '__main__':
     for input_path in inputs:
         print(input_path)
         #output_file = f'{outputs_dir}/{graph_name}.out'
-        output_path = 'outputs2/' + input_path[8:-3] + '.out'
+        output_path = 'outputs/' + input_path[8:-3] + '.out'
         print(output_path)
         G, s = read_input_file(input_path, 100)
         D, k = solve_1(G, s)
@@ -193,18 +165,5 @@ if __name__ == '__main__':
         cost_t = calculate_happiness(D, G)
         write_output_file(D, output_path)
 
-
-if __name__ != '__main__':
-    outputs_dir = sys.argv[1]
-    submission_name = sys.argv[2]
-    submission = {}
-    for input_path in os.listdir("inputs2"):
-        graph_name = input_path.split('.')[0]
-        output_file = f'{outputs_dir}/{graph_name}.out'
-        if os.path.exists(output_file) and validate_file(output_file):
-            output = open(f'{outputs_dir}/{graph_name}.out').read()
-            submission[input_path] = output
-    with open(submission_name, 'w') as f:
-        f.write(json.dumps(submission))
 
 

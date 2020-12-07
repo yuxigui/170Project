@@ -211,7 +211,7 @@ if __name__ == '__main__':
     #inputs = glob.glob('inputs2/medium*')
     for input_path in inputs:
         print(input_path)
-        output_path = 'outputs2/5' + input_path[8:-3] + '.out'
+        output_path = 'outputs/' + input_path[8:-3] + '.out'
         #output_path = 'outputs2/5' + input_path[8:-3] + '.out'
         print(output_path)
         G, s = read_input_file(input_path)
