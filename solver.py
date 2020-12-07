@@ -162,7 +162,7 @@ def checkStressConsForAllRoomsHaveOpened(dic, s, k) :
 def greedySolve(G,s):
     popIndex = 0
     while popIndex < len(G.edges): #can change the popIndex
-        for steps in range(0, 50):
+        for steps in range(0, 35):
             dic, k = solve(G, s, popIndex) 
             """ dic2, k2 = solve2(G, s, popIndex)
             if len(dic) != 0 and is_valid_solution(dic,G, s, k) and len(dic2) != 0 and is_valid_solution(dic2, G, s, k2):
@@ -207,11 +207,11 @@ def addUniqueElements(arr, elem1, elem2):
 
 # Usage: python3 solver.py test.in
 if __name__ == '__main__':
-    inputs = glob.glob('inputs2/medium*')
+    inputs = glob.glob('inputs/medium*')
     #inputs = glob.glob('inputs2/medium*')
     for input_path in inputs:
         print(input_path)
-        output_path = 'outputs/' + input_path[8:-3] + '.out'
+        output_path = 'outputs/' + input_path[7:-3] + '.out'
         #output_path = 'outputs2/5' + input_path[8:-3] + '.out'
         print(output_path)
         G, s = read_input_file(input_path)
