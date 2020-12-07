@@ -25,7 +25,7 @@ def solve(G, s, c):
     k = 1 #number of breakout rooms opened currently
     totalPpl = G.number_of_nodes()
     BreakOutDict = {} #{key: breakoutRoomnNmber; value:list of people in that room}
-    for i in range(20): #HARDCODE the range value to be number of breakoutRooms 1<=range<=totalPpl
+    for i in range(10): #HARDCODE the range value to be number of breakoutRooms 1<=range<=totalPpl
         BreakOutDict[i] = []
     l = [] #people already put into rooms
     #sorted by decreasing value of (happ - stress)
@@ -64,6 +64,8 @@ def solve(G, s, c):
             addUniqueElements(l, currStudent, currStudent2)  #add the two to the list of people already put into rooms
         else:  #if all the rooms that have been opened won't satisfy the constraint, open a new room to put the two pairs
             k = k + 1 #new room
+            if k >= 10:
+                return {}, -1
             addUniqueElements(BreakOutDict[k - 1], currStudent, currStudent2)
             if checkStressConsForAllRoomsHaveOpened(BreakOutDict, s, k): #check if all constraints are satisfied
                 #print("opened a new room")
@@ -160,7 +162,7 @@ def checkStressConsForAllRoomsHaveOpened(dic, s, k) :
 def greedySolve(G,s):
     popIndex = 0
     while popIndex < len(G.edges): #can change the popIndex
-        for steps in range(0, 50):
+        for steps in range(0, 20):
             dic, k = solve(G, s, popIndex) 
             """ dic2, k2 = solve2(G, s, popIndex)
             if len(dic) != 0 and is_valid_solution(dic,G, s, k) and len(dic2) != 0 and is_valid_solution(dic2, G, s, k2):
