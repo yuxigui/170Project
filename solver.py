@@ -162,7 +162,7 @@ def checkStressConsForAllRoomsHaveOpened(dic, s, k) :
 def greedySolve(G,s):
     popIndex = 0
     while popIndex < len(G.edges): #can change the popIndex
-        for steps in range(0, 20):
+        for steps in range(0, 50):
             dic, k = solve(G, s, popIndex) 
             """ dic2, k2 = solve2(G, s, popIndex)
             if len(dic) != 0 and is_valid_solution(dic,G, s, k) and len(dic2) != 0 and is_valid_solution(dic2, G, s, k2):
