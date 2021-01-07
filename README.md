@@ -1,7 +1,5 @@
 # CS 170 Project Fall 2020
 
-Take a look at the project spec before you get started!
-
 Requirements:
 
 Python 3.6+
