@@ -6,8 +6,7 @@
 as much as possible. Since school has been reduced to a series of awkward Zoom breakout rooms, we figured this is
 a good place to start. We noticed that student stress and happiness fluctuate greatly depending on how they are split
 into breakout rooms, so we are looking to find a way to divide up stressed 170 students to make them a little happier.
-However, this sounds like a really difficult task, so we decided to outsource this to you. 
-
+We are given with 200 inputs for every size (5, 10, 20), and our task is to develop an algorithm to solve the NP-Hard problem.
 Project Spec: https://cs170.org/assets/pdf/project_spec.pdf
 
 ## Algorithm
